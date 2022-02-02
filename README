@@ -1,0 +1,68 @@
+# DAW2 M08UF1 2021-2022 FJE CLOT
+
+## Requisits
+
+Requereix tenir instal·lat previament:
+1. Git https://git-scm.com/
+2 Virtualbox https://www.virtualbox.org/
+3. Vagrant https://www.vagrantup.com/
+
+## Pasos a seguir
+
+1. Clonar el repositori GIT i accedir al directori de treball de la pràctica:
+
+	mkdir m08uf1ex1
+	cd m08uf1ex1
+	git clone https://github.com/dacomo2021daw2/m08uf1ex1.git
+	cd m08uf1ex1
+
+
+2. Canvia el nom de sistema de la màquina virtual:
+
+	2.1 Obre Vagrantfile amb nano, geany, qualsevol IDE o qualsevol editor de texte pla.
+	2.2 Edita el paràmete config.vm.hostname i fes que el seu nou valor sigui:
+		config.vm.hostname = "xxyyzzm08uf1ex1"
+	NOTA: xxyyzz són les 2 primeres lletres del teu nom, 1r cognom i 2n cognom
+
+
+3. Afegeix un port forwarding per exposar el port 443 de la màquina virtual al port 18443 de la màquina host:
+
+	4.1 Obre Vagrantfile amb nano, geany, qualsevol IDE o qualsevol editor de texte pla. 
+	4.2 Afegeix config.vm.network "forwarded_port", guest: 443, host: 18443
+
+
+4. Afegeix un altre port forwarding per exposar el port 22 de la màquina virtual al port 18022 de la màquina host:
+
+	4.1 Obre Vagrantfile amb nano, geany, qualsevol IDE o qualsevol editor de texte pla. 
+	4.2 Afegeix config.vm.network "forwarded_port", guest: 22, host: 18022
+
+
+5. Afegeix el servidor Apache2, el mòdul de PHP per Apache2, l'interpret de llenguatge PHP 7.3, el paquet openssl, el servidor openssh-server i openssh-sftp-server:
+
+	5.1 Obre Vagrantfile amb nano, geany, qualsevol IDE o qualsevol editor de texte pla.
+	5.2 Aprovisiona el programari extra a la secció config.vm.provision afegint:
+		sudo apt-get install -y apache2 apache2-doc
+		sudo apt-get install -y libapache2-mod-php
+		sudo apt-get install -y php7.3
+		sudo apt-get install -y openssl
+		sudo apt-get install -y openssh-server openssh-sftp-server	
+
+
+6. Inicia la màquina virtual amb l'ordre des de dins de la carpeta m08uf1ex1:
+
+	vagrant up
+
+
+7. Per accedir a u terminal de la màquina virtual, executa des de dins de la carpeta m08uf1ex1 l'ordre:
+
+	vagrant ssh
+
+
+## Problemes amb vagrant ssh
+
+Si no aconseguim accedir amb vagrant ssh, realitza les següents passes:
+
+1. Accedeix a Virtualbox, selecciona la màquina virtual m08uf1ex1 i prem el botó de "Mostra". 
+2. Accedeix a la màquina virtual via terminal. L'usuari per defecte és vagrant i la seva contrasenya és vagrant. 
+
+

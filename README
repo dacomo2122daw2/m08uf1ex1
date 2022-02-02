@@ -9,10 +9,10 @@ Requereix tenir instal·lat previament:
 
 ## Pasos a seguir
 
-1. Clonar el repositori GIT i accedir al directori de treball de la pràctica:
+1. Clona el repositori GIT de l'examen i accedeix al directori de treball:
 
-	mkdir m08uf1ex1
-	cd m08uf1ex1
+	mkdir m08uf1 (si ja existeix, no cal crear-lo)
+	cd m08uf1
 	git clone https://github.com/dacomo2122daw2/m08uf1ex1.git
 	cd m08uf1ex1
 

@@ -25,28 +25,18 @@ Requereix tenir instal·lat previament:
 	NOTA: xxyyzz són les 2 primeres lletres del teu nom, 1r cognom i 2n cognom
 
 
-3. Afegeix un port forwarding per exposar el port 443 de la màquina virtual al port 18443 de la màquina host:
+3. Afegeix un port forwarding per exposar el port 22,443 i 10081 de la màquina virtual als ports 18022,18443 i 18081 de la màquina host:
 
 	3.1 Obre Vagrantfile amb nano, geany, qualsevol IDE o qualsevol editor de texte pla. 
-	3.2 Afegeix config.vm.network "forwarded_port", guest: 443, host: 18443
+	3.2 Afegeix config.vm.network "forwarded_port", guest: 22, host: 2022
+	3.3 Afegeix config.vm.network "forwarded_port", guest: 443, host: 18443
+	3.4 Afegeix config.vm.network "forwarded_port", guest: 10081, host: 18081
 
 
-4. Afegeix un altre port forwarding per exposar el port 22 de la màquina virtual al port 18022 de la màquina host:
+4. Afegeix el servidor Apache2, el mòdul de PHP per Apache2, l'interpret de llenguatge PHP 7.3, el paquet openssl, el servidor openssh-server i openssh-sftp-server:
 
-	4.1 Obre Vagrantfile amb nano, geany, qualsevol IDE o qualsevol editor de texte pla. 
-	4.2 Afegeix config.vm.network "forwarded_port", guest: 22, host: 18022
-
-
-5. Afegeix un altre port forwarding per exposar el port 8080 de la màquina virtual al port 18080 de la màquina host:
-
-	5.1 Obre Vagrantfile amb nano, geany, qualsevol IDE o qualsevol editor de texte pla. 
-	5.2 Afegeix config.vm.network "forwarded_port", guest: 22, host: 18022
-
-
-6. Afegeix el servidor Apache2, el mòdul de PHP per Apache2, l'interpret de llenguatge PHP 7.3, el paquet openssl, el servidor openssh-server i openssh-sftp-server:
-
-	6.1 Obre Vagrantfile amb nano, geany, qualsevol IDE o qualsevol editor de texte pla.
-	6.2 Aprovisiona el programari extra a la secció config.vm.provision afegint:
+	4.1 Obre Vagrantfile amb nano, geany, qualsevol IDE o qualsevol editor de texte pla.
+	4.2 Aprovisiona el programari extra a la secció config.vm.provision afegint:
 		sudo apt-get install -y apache2 apache2-doc
 		sudo apt-get install -y libapache2-mod-php
 		sudo apt-get install -y php7.3
@@ -54,12 +44,12 @@ Requereix tenir instal·lat previament:
 		sudo apt-get install -y openssh-server openssh-sftp-server	
 
 
-7. Inicia la màquina virtual amb l'ordre des de dins de la carpeta m08uf1ex1:
+5. Inicia la màquina virtual amb l'ordre des de dins de la carpeta m08uf1ex1:
 
 	vagrant up
 
 
-8. Per accedir a u terminal de la màquina virtual, executa des de dins de la carpeta m08uf1ex1 l'ordre:
+6. Per accedir a u terminal de la màquina virtual, executa des de dins de la carpeta m08uf1ex1 l'ordre:
 
 	vagrant ssh
 

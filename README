@@ -37,10 +37,16 @@ Requereix tenir instal·lat previament:
 	4.2 Afegeix config.vm.network "forwarded_port", guest: 22, host: 18022
 
 
-5. Afegeix el servidor Apache2, el mòdul de PHP per Apache2, l'interpret de llenguatge PHP 7.3, el paquet openssl, el servidor openssh-server i openssh-sftp-server:
+5. Afegeix un altre port forwarding per exposar el port 8080 de la màquina virtual al port 18080 de la màquina host:
 
-	5.1 Obre Vagrantfile amb nano, geany, qualsevol IDE o qualsevol editor de texte pla.
-	5.2 Aprovisiona el programari extra a la secció config.vm.provision afegint:
+	5.1 Obre Vagrantfile amb nano, geany, qualsevol IDE o qualsevol editor de texte pla. 
+	5.2 Afegeix config.vm.network "forwarded_port", guest: 22, host: 18022
+
+
+6. Afegeix el servidor Apache2, el mòdul de PHP per Apache2, l'interpret de llenguatge PHP 7.3, el paquet openssl, el servidor openssh-server i openssh-sftp-server:
+
+	6.1 Obre Vagrantfile amb nano, geany, qualsevol IDE o qualsevol editor de texte pla.
+	6.2 Aprovisiona el programari extra a la secció config.vm.provision afegint:
 		sudo apt-get install -y apache2 apache2-doc
 		sudo apt-get install -y libapache2-mod-php
 		sudo apt-get install -y php7.3
@@ -48,12 +54,12 @@ Requereix tenir instal·lat previament:
 		sudo apt-get install -y openssh-server openssh-sftp-server	
 
 
-6. Inicia la màquina virtual amb l'ordre des de dins de la carpeta m08uf1ex1:
+7. Inicia la màquina virtual amb l'ordre des de dins de la carpeta m08uf1ex1:
 
 	vagrant up
 
 
-7. Per accedir a u terminal de la màquina virtual, executa des de dins de la carpeta m08uf1ex1 l'ordre:
+8. Per accedir a u terminal de la màquina virtual, executa des de dins de la carpeta m08uf1ex1 l'ordre:
 
 	vagrant ssh
 
